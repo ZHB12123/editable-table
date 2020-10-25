@@ -1,0 +1,58 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <title>编辑表格数据</title>
+    <script src="https://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+    <link rel="stylesheet" href="/static/table.css">
+    <script type="text/javascript" src="/static/editable_table.js"></script>
+</head>
+
+<body>
+    <form id="form1" name="form1" method="post" action="">
+        <h3>可编辑的表格</h3>
+        <table width="1200" border="0" cellpadding="0" cellspacing="0" id="tabProduct">
+            <tr>
+                <td width="186" align="center" bgcolor="#EFEFEF" Name="microService" EditType="TextBox">微服务</td>
+                <td width="152" align="center" bgcolor="#EFEFEF" Name="ipAddress" EditType="TextBox">ip地址</td>
+                <td width="200" align="center" bgcolor="#EFEFEF" Name="rootPasswd" EditType="TextBox">root用户密码</td>
+                <td width="200" align="center" bgcolor="#EFEFEF" Name="hispacePasswd" EditType="TextBox">hispanic用户密码</td>
+                <td width="250" align="center" bgcolor="#EFEFEF" Name="ops" EditType="TextBox">测试负责人</td>
+                <td width="250" align="center" bgcolor="#EFEFEF" Name="dev" EditType="TextBox">开发负责人</td>
+                <td width="250" align="center" bgcolor="#EFEFEF" Name="version" EditType="TextBox">微服务版本号</td>
+                <td width="250" align="center" bgcolor="#EFEFEF" Name="branch" EditType="TextBox">微服务分支</td>
+                <!-- <td width="120" bgcolor="#EFEFEF" Name="SumMoney" Expression="Amount*Price" Format="#,###.00">合计</td> -->
+            </tr>
+            {% for info in data %}
+            <tr>
+                <td align="center" bgcolor="#FFFFFF">1</td>
+                <td align="center" bgcolor="#FFFFFF">C</td>
+                <td align="center" bgcolor="#FFFFFF">0</td>
+                <td align="center" bgcolor="#FFFFFF">0</td>
+                <td align="center" bgcolor="#FFFFFF">0</td>
+                <td align="center" bgcolor="#FFFFFF">0</td>
+                <td align="center" bgcolor="#FFFFFF">0</td>
+                <td align="center" bgcolor="#FFFFFF">0</td>
+            </tr>
+            {% endfor %}
+        </table>
+
+        <br />
+        <input type="button" name="Submit" value="验证" onclick="AddRow(document.getElementById('tabProduct'),1)"/>
+        <input type="button" name="Submit22" value="重置" onclick="window.location.reload()" />
+        <input type="submit" name="Submit3" value="提交"
+            onclick="GetTableData(document.getElementById('tabProduct'));return false;" />
+    </form>
+
+    <!-- <script language="javascript" src="GridEdit.js"></script> -->
+    <script language="javascript">
+        var tabProduct = document.getElementById("tabProduct");
+        // 设置表格可编辑    
+        // 可一次设置多个，例如：EditTables(tb1,tb2,tb2,......)    
+        EditTables(tabProduct);
+    </script>
+</body>
+
+</html>
